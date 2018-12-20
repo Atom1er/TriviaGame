@@ -1,0 +1,108 @@
+body{
+    background-image: url(../images/background.jpg);
+}
+
+
+.header{
+    background-color: rgba(10, 8, 31, 0.658);
+    width: 100%;
+    padding: 2%;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+    /* margin-right: -15px;
+    margin-left: 15px; */
+
+}
+
+.links{
+    background-color:rgba(21, 21, 131, 0.671);
+    border-color: cornflowerblue;
+    border: solid 1px;
+    padding: 5px;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+}
+
+.link{
+    position: relative;
+    background-color:rgba(21, 21, 131, 0.671);
+    border-color: cornflowerblue;
+    border: solid 1px;
+    padding: 5px;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+}
+
+#repository{
+    float: right;
+}
+
+#footer{
+    position: relative;
+    /* width: 100%; */
+    /* padding: 7%; */
+    /* background-color: rgba(10, 8, 31, 0.658); */
+    bottom: 0%;
+    /* color: black; */
+    /* border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%; */
+    
+}
+
+#foot{
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+
+}
+
+.choice{
+    background-color: rgba(2, 17, 230, 0.637);
+    margin: 2px;
+    display: block;
+    border: 1px solid gray;
+    border-radius: 15%;
+    float: left;
+}
+
+.test{
+    float: right;
+    margin: 2px;
+    width: 5px;
+    display: block;
+    border: 10px solid gray;
+    border-radius: 50%;
+}
+#timer{
+    clear: left;
+    float: left;
+    width: 50%;
+    margin: 5px;
+}
+
+#timegauge{
+    background-color:rgb(69, 163, 66);
+    border-radius: 15px;
+    clear: left;
+    float: left;
+    height: 100%;
+    border: 1px solid gray;
+}
+
+#btimeGauge{
+    background-color:rgba(105, 184, 102, 0.466);
+    border-radius: 15px;
+    height: 10px;
+    border: 1px solid gray;
+    width: 150px;
+}
+#start{
+    align-content: center;
+    background-color: rgba(48, 116, 70, 0.726);
+    padding: 30px;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black
+}
