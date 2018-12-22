@@ -110,6 +110,16 @@ body{
     margin-right: auto;
     color: black
 }
+#restart{
+    text-align: center;
+    width: 10%;
+    background-color: rgba(48, 116, 70, 0.726);
+    padding: 30px;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black
+}
 
 img{
     margin: auto;

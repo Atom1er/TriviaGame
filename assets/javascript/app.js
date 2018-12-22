@@ -13,8 +13,9 @@ var btimeGauge = $("#btimeGauge");
 var progress = $("#progress");
 var scoreDiv = $("#score");
 var mood = $("#mood");
-
-var selected = 0;
+var timerInterval = 0;
+var end;
+var selected;
 var status = 1;
 var score=0;
 var win = 0;
@@ -23,8 +24,31 @@ var count=0;
 var end = false;
 var questionTime = 20;
 var gWidth = 300;
-var gUnit =gWidth / questionTime;
-var TIMER;
+var gUnit;
+var Lquestion;
+var Rquestion = 0
+
+ function test(){
+     console.log("function: test");
+    selected = 0;
+    status = 1;
+    score=0;
+    win = 0;
+    fail = 0;
+    count=0;
+    end = false;
+    questionTime = 20;
+    gWidth = 300;
+    gUnit =gWidth / questionTime;
+    Lquestion = questions.length - 1;
+    Rquestion = 0;
+ }
+function restart(){
+    
+    console.log("function: restart");
+    startGame();
+}
+
 
 let questions = [
     {
@@ -70,25 +94,34 @@ let questions = [
     },
 ]
 
+function printdebug(){
+    console.log({
+        end: end,
+        timerInterval: timerInterval,
+        questions: questions
+    })
+}
 
-var Lquestion = questions.length - 1;
-var Rquestion = 0;
 
 
 
 //---------->Function start<-------------------/////////////////////////////////
 function startGame(){
+    printdebug();
+    console.log("function: startGame");
+    test();
     end = false;
     $("#score").css('display','none');
     start.css('display','none');
     mood.css('display', 'block');
     quiz.css('display','block');
-    // result();
     RenderQuestion();
     renderProgress();
     renderCounter();
-    TIMER = setInterval(renderCounter, 1000);
+    timerInterval = setInterval(renderCounter, 1000);
+    console.log(timerInterval)
     checker();
+    printdebug();
     
 }
 
@@ -116,6 +149,8 @@ start.on({
 //DISPLAYING QUESTIONS
 
 function RenderQuestion() {
+    
+    console.log("function: RenderQuestion");
     if(score<5){
     var quest = questions[Rquestion];
     question.html("<p>" + quest.question + "</p>");
@@ -150,7 +185,7 @@ function RenderQuestion() {
     $("#score1").html('<div><h3>Correct answer '+win+'<br>Wrong Answer '+fail+"</h3></div>");
     $("#restart").on('click', function(){
         alert('test');
-    //  restart();
+     restart();
     });
 
 }
@@ -171,6 +206,8 @@ function renderProgress() {
 
 //----------------> Gauge Counter<-------------------------------////////////////
 function renderCounter(){
+    
+    console.log("function: renderCounter");
     if(count<=questionTime && score < 5 && !end){
          var g=count * gUnit;
          timegauge.css('width',g+"px");
@@ -186,6 +223,8 @@ function renderCounter(){
 }
 //-----------------------> Checking User Answer <----------/////
 function checker(){
+        
+     console.log("function: checker");
     $("#submit").on('click', function(){
         count=0;
 
@@ -204,9 +243,15 @@ function checker(){
         RenderQuestion();
     } else if (score == 5){
         end =true;
-    };
+        score = 0;
+        clearInterval(timerInterval);
+    }
+    else{
+        console.log("score: " + score);
+    }
+    ;
     
-    
+    alert
 
     });
 };
@@ -240,6 +285,4 @@ function Ans(elem1 , elem2){
 
 }
 
-function restart(){
-    startGame();
-}
+
