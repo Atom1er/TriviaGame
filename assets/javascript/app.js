@@ -78,6 +78,7 @@ var Rquestion = 0;
 
 //---------->Function start<-------------------/////////////////////////////////
 function startGame(){
+    end = false;
     $("#score").css('display','none');
     start.css('display','none');
     mood.css('display', 'block');
@@ -143,10 +144,14 @@ function RenderQuestion() {
     
     })
 } else{
+    end=true;
     $(".ques").css('display','none');
     $("#score").css('display', 'block');
     $("#score1").html('<div><h3>Correct answer '+win+'<br>Wrong Answer '+fail+"</h3></div>");
-    $("#restart").on('click', startGame());
+    $("#restart").on('click', function(){
+        alert('test');
+    //  restart();
+    });
 
 }
 }
@@ -210,25 +215,31 @@ function checker(){
 function Ans(elem1 , elem2){
 
     //If UserChoice is Right show green light else red Light
-    if(elem1 == questions[elem2].correct && !end){
+    if(!end){
+    if(elem1 == questions[elem2].correct){
         $("#"+Rquestion).css('background-color','green');
         win++;
         score = fail + win;
         console.log(score);
-    }else if (!end){
+    }else{
         $("#"+Rquestion).css('background-color','red');
         status++;
         fail++;
         score = fail + win;
         console.log(score);
-        $(".mood").attr('src','./assets/images/'+status+'.png');
+        if(status<6){
+            $(".mood").attr('src','./assets/images/'+status+'.png');
+        }else if(status == 6){
+            status=status-1;
+            $(".mood").attr('src','./assets/images/'+status+'.png');
+        }
+        
     }
-    //  else if(end){
-    //    $(".ques").css('display','none');
-    //    $("#score").css('display', 'block');
-    //    $("#score").html('<div><h3>Correct answer '+win+'Wrong Answer '+fail+"</h3></div>");
 
-    // }
+}
 
+}
 
+function restart(){
+    startGame();
 }
