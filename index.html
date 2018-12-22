@@ -22,27 +22,51 @@
                     <a class="links" id="repository" href="#">Repository</a>
                 </div>
             </div>
+            <div id="start">Start</div>
             <div class="row main">
                 <!-- Main Contain -->
-                <div id="start">Start</div>
-                <div id="quiz" style="display: none">
-                    <div id="question"></div>
-                    <div id="qImg"></div>
-                    <div id="choices">
-                        <div class="choice" id="A" onclick="checker('A')"></div>
-                        <div class="choice" id="B" onclick="checker('B')"></div>
-                        <div class="choice" id="C" onclick="checker('C')"></div>
+
+                <div class="col-8 ques">
+                    <div class="row" id="main_top">
+                        <div id="quiz" style="display: none">
+                            <div id="question"></div>
+                            <div id="choices">
+                                <input name="UserCheckChoice" value="1" class="UserChoice" type="checkbox">
+                                <div class="choice" id="A"></div><br>
+                                <input name="UserCheckChoice" value="2" class="UserChoice" type="checkbox">
+                                <div class="choice" id="B"></div><br>
+                                <input name="UserCheckChoice" value="3" class="UserChoice" type="checkbox">
+                                <div class="choice" id="C"></div>
+                            </div>
+                            <div id="timer">
+                                <div id="counter"></div>
+                                <div id="btimeGauge">
+                                    <div id="timegauge"></div>
+                                </div>
+
+                            </div>
+                            <button id="submit">Submit</button>
+                            <div id="progress"></div>
+                        </div>
                     </div>
-                    <div id="timer">
-                        <div id="counter"></div>
-                        <div id="btimeGauge"> <div id="timegauge"></div></div>
-                       
+                    <div id="main_bottom">
+                        <div id="mood" style="display:none"><img class="mood" src="./assets/images/1.png" alt="Actual Mood"></div>
                     </div>
-                    <div id="progress"></div>
                 </div>
-                <div id="score" style="display: none"></div>
+                <div class="col-4 ques">
+                    <div id="qImg"></div>
+                </div>
 
-
+            </div>
+            <div id="score" style="display: none">
+                <div id="score1"></div>
+                <div id="restart">Restart</div>
+            </div>
+            <div id="rules">
+                <h1>Rules:</h1>
+                <h4>1- Choose the correct answer and get a green Light, choose the wrong answer get a red Light<br>
+                    2- You have 20 seconds to choose and submit every question.<br>
+                    3- If times is over, the will consider that you fail on that question.</h4>
             </div>
             <div class="row" id="footer">
                 <div id="foot"><a class="link">Thomas copyright</a></div>
